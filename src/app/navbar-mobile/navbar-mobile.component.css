@@ -1,0 +1,20 @@
+a {
+    text-decoration: none;
+    color: white;
+}
+
+a:active, a:hover {
+    color: orange;
+    background-color: black;
+}
+
+.nav-main,.navbar-toggler {
+       color: white;
+       background-color:black;
+}
+.navbar{
+    background-color: black;
+}
+.btn{
+    color: white;
+}
