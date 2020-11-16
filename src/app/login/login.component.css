@@ -35,10 +35,10 @@
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-.forgot-link {
+#forgot-link {
     color: goldenrod;
     margin-top: 5px;
-    margin-left: 232px;
+    text-align:right
 }
 
 /* horizontal line with centerd text from codepen, orginally in scss */
@@ -78,15 +78,20 @@
     .image-size {
         width: 20px;
         height: 20px;
+      
     }
     .image-size-a {
         width: 35px;
         height: 35px;
+      
     }
+    
     .image-size-m {
         width: 30px;
         height: 30px;
+        
     }
+    
   
     .btn-signup {
         color: white;

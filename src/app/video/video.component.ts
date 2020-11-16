@@ -9,7 +9,7 @@ import videojs from 'video.js';
   encapsulation: ViewEncapsulation.None,
 })
 export class VideoComponent implements OnInit, OnChanges,  OnDestroy {
-  @Input() id;
+  @Input() id; playStatus; playText = 'Play';
   // @ViewChild('target', {static: true}) target: ElementRef;
   // see options: https://github.com/videojs/video.js/blob/mastertutorial-options.html
   
@@ -20,10 +20,11 @@ export class VideoComponent implements OnInit, OnChanges,  OnDestroy {
   cast:[];
   test: string[] = []; 
   constructor(private dataservice:DataService) {
-    window.scrollTo(0, 0);
+    // window.scrollTo(0, 0);
    }
 
   ngOnInit() {
+    this.playStatus = true;
     for(var i=0; i< this.videoArray.length; i++) { 
       this.test.push(this.videoArray[i].thumbUrl);
     }
@@ -49,11 +50,19 @@ export class VideoComponent implements OnInit, OnChanges,  OnDestroy {
     
   }
 
-  playVideoBtn(e) {
-    console.log(e);
-    var myPlayer = videojs('vjs-player');
-    myPlayer.play();
-  }
+  playVideoBtn() {
+    var videoObj = videojs('vjs-player');
+      if (!videoObj.paused()) {
+          console.log("Video is playing");
+          this.playStatus = true;
+          this.playText = 'Play';
+          videoObj.pause();
+      } else {
+          console.log("Video is paused");
+          this.playStatus = false;
+          this.playText = 'Pause';
+          videoObj.play();
+      }}
 
   getId(idFromCarousel){
     this.id=idFromCarousel;
