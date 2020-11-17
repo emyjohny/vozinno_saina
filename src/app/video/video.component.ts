@@ -19,6 +19,7 @@ export class VideoComponent implements OnInit, OnChanges,  OnDestroy {
   details:[];
   cast:[];
   test: string[] = []; 
+  year;
   constructor(private dataservice:DataService) {
     // window.scrollTo(0, 0);
    }
@@ -45,6 +46,7 @@ export class VideoComponent implements OnInit, OnChanges,  OnDestroy {
       this.details=resp.data[0];
       // console.log(this.details)
       this.cast=resp.data[0]['castCrew']; 
+      this.year=resp.data[0]['releaseDate'].split('-').slice(0,1)
         this.playVideo();   
     })     
     
